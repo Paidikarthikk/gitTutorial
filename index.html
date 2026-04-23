@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookNest | Online Bookstore</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand">
+          <div class="logo">BookNest</div>
+          <p>Discover books, build your cart, checkout fast.</p>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <button class="nav-link active" data-filter="all">All</button>
+          <button class="nav-link" data-filter="fiction">Fiction</button>
+          <button class="nav-link" data-filter="nonfiction">Nonfiction</button>
+          <button class="nav-link" data-filter="business">Business</button>
+          <button class="nav-link" data-filter="kids">Kids</button>
+        </nav>
+        <div class="header-actions">
+          <div class="search-group">
+            <input type="search" id="searchInput" placeholder="Search books, authors, themes" aria-label="Search books" />
+            <button id="searchBtn">Search</button>
+          </div>
+          <button id="cartToggle" class="cart-btn" aria-label="Open cart">
+            Cart <span id="cartCount">0</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Online Bookstore</p>
+            <h1>Find your next favorite book today</h1>
+            <p>Browse bestsellers, new releases, and curated collections for every reader.</p>
+            <div class="hero-buttons">
+              <button id="shopNowBtn" class="primary-btn">Start shopping</button>
+              <a href="#features" class="secondary-btn">Why BookNest?</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <h2>Featured Collection</h2>
+              <p>Unlock special pricing on select books and enjoy fast digital checkout.</p>
+              <div class="hero-stat">
+                <strong>150+</strong>
+                <span>Books in stock</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="features-grid">
+          <article>
+            <h3>Smart Search</h3>
+            <p>Filter by genre, author, rating, and price so you can find the perfect read fast.</p>
+          </article>
+          <article>
+            <h3>Instant Cart</h3>
+            <p>One-click add, quantity controls, and persistent cart state while you shop.</p>
+          </article>
+          <article>
+            <h3>Secure Checkout</h3>
+            <p>Fill your details, choose shipping, and review order summary before placing it.</p>
+          </article>
+        </section>
+
+        <section class="product-toolbar">
+          <div class="toolbar-left">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="rating">Best rated</option>
+            </select>
+          </div>
+          <div class="toolbar-right">
+            <span id="resultsNotice">Showing all books</span>
+          </div>
+        </section>
+
+        <section id="products" class="product-grid" aria-label="Book catalog"></section>
+
+        <section class="checkout-panel" id="checkoutPanel">
+          <h2>Checkout</h2>
+          <div class="checkout-columns">
+            <form id="checkoutForm" class="checkout-form">
+              <h3>Shipping information</h3>
+              <label>
+                Full name
+                <input type="text" id="nameField" placeholder="Jane Doe" required />
+              </label>
+              <label>
+                Email address
+                <input type="email" id="emailField" placeholder="jane@example.com" required />
+              </label>
+              <label>
+                Shipping address
+                <input type="text" id="addressField" placeholder="123 Main St" required />
+              </label>
+              <label>
+                Payment method
+                <select id="paymentField">
+                  <option value="credit">Credit card</option>
+                  <option value="paypal">PayPal</option>
+                  <option value="apple">Apple Pay</option>
+                </select>
+              </label>
+              <label>
+                Order notes
+                <textarea id="notesField" placeholder="Gift message or delivery notes"></textarea>
+              </label>
+              <button type="submit" class="primary-btn">Place order</button>
+            </form>
+
+            <aside class="order-summary">
+              <h3>Order summary</h3>
+              <div id="summaryItems" class="summary-items"></div>
+              <div class="summary-total">
+                <span>Total</span>
+                <strong id="summaryTotal">$0.00</strong>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="info-section">
+          <div>
+            <h2>Why shop with BookNest?</h2>
+            <p>Curated collections, fast browsing, and a clean checkout experience. We make buying books online simple and enjoyable.</p>
+          </div>
+          <div class="info-cards">
+            <article>
+              <h4>Fast delivery</h4>
+              <p>Order today and get notified instantly when your order is ready to ship.</p>
+            </article>
+            <article>
+              <h4>100% secure</h4>
+              <p>Your details are only used to complete the order and stay private.</p>
+            </article>
+            <article>
+              <h4>Easy returns</h4>
+              <p>Not satisfied? Contact us to process a quick refund or exchange.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <h2>BookNest</h2>
+          <p>A modern book marketplace for readers who want fast browsing, simple cart management, and a smooth checkout flow.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#products">Catalog</a>
+          <a href="#checkoutPanel">Checkout</a>
+        </div>
+      </footer>
+    </div>
+    <div id="cartSidebar" class="cart-sidebar" aria-hidden="true">
+      <div class="cart-header">
+        <h2>Your cart</h2>
+        <button id="closeCart" aria-label="Close cart">×</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-totals">
+          <span>Subtotal</span>
+          <strong id="cartTotal">$0.00</strong>
+        </div>
+        <button id="checkoutBtn" class="primary-btn">Checkout now</button>
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
